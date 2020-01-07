@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+
+
+    <script>
+
+        var signIndex = ["rock", "paper", "scissors"];
+        var winCount = 0;
+        var lossCount = 0;
+        var tieCount = 0;
+        var gameCheck = false;
+
+        alert("Welcome to Rock, Paper, Scissors!");
+        alert("Prepare to play the best of 5 games. Ready?");
+        
+        for (var i = 0; i < 5; i++) {
+
+        var userChoice = prompt("Throw your sign (rock, paper, or scissors");
+        var compChoice = signIndex[Math.floor(Math.random() * (3) )];
+        alert("You have thrown " + userChoice + ". Opponent has thrown " + compChoice +".");
+
+        if (userChoice === "rock") {
+
+            if (compChoice === signIndex[0]) {
+                tieCount++;
+                i--;
+                alert("You have tied your opponent!");
+            }
+            else if (compChoice === signIndex[1]) {
+                lossCount++;
+                alert("You have lost to your opponent!");
+            }
+            else if (compChoice === signIndex[2]) {
+                winCount++;
+                alert("You have beat your opponent!");
+            }
+
+        }
+
+        else if (userChoice === "paper") {
+
+            if (compChoice === signIndex[0]) {
+                winCount++;
+                alert("You have beat your opponent!");
+            }
+            else if (compChoice === signIndex[1]) {
+                tieCount++;
+                i--;
+                alert("You have tied your opponent!");
+            }
+            else if (compChoice === signIndex[2]) {
+                lossCount++;
+                alert("You have lost to your opponent!");
+            }
+        }
+
+        else if (userChoice === "scissors") {
+
+            if (compChoice === signIndex[0]) {
+                lossCount++;
+                alert("You have lost to your opponent!");
+            }
+            else if (compChoice === signIndex[1]) {
+                winCount++;
+                alert("You have beat your opponent!");
+            }
+            else if (compChoice === signIndex[2]) {
+                tieCount++;
+                i--;
+                alert("You have tied your opponent!");
+            }
+        }
+
+        else {
+            lossCount++;
+            alert("You did not throw a regulated sign. This has resulted in an automatic loss. Please choose 'rock', 'paper', or scissors' to play.");
+        }
+        
+        if (winCount === 3 || lossCount === 3) {
+            gameCheck = true;
+        }
+
+        if (gameCheck === true) {
+            i = 5;
+        }
+
+      }
+      alert("Final Score:\n" + winCount + " wins.\n" + lossCount + " losses.\n" + tieCount + " ties.")
+
+      if (winCount > lossCount) {
+          alert("Congrats! You rock!");
+      }
+
+      else if (lossCount < winCount) {
+          alert("Yikes! You suck! \nDon't quit your day job");
+      }
+    
+    </script>
+    
+  </body>
+</html>
